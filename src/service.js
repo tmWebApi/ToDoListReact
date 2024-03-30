@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = "https://localhost:7097";
+const REACT_APP_API_SERVER = "https://localhost:7097";
+axios.defaults.baseURL = REACT_APP_API_SERVER ;
 axios.interceptors.response.use(
   response => response,
   error => {
@@ -19,7 +20,7 @@ export default {
   },
 
   addTask: async (name) => {
-    const result = await axios.post(`/items`, { "name": name , "isComplete": 0 })
+    const result = await axios.post(`/items`, { "name": name , "isComplete": false })
     return result;
   },
 
